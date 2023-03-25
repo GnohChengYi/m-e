@@ -20,17 +20,25 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Start" Padding="30,24,30,24">
+        <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="Start" Padding="30,24,30,24">
             <Label Text="[Name]" FontAttributes="Bold" FontSize="Title" TextColor="Black"/>
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout HorizontalOptions="Center" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <StackLayout BackgroundColor="SkyBlue" HeightRequest="216" WidthRequest="342" Padding="10,8,10,8">
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Label Text="Kad Pengenalan MALAYSIA Identity Card" HorizontalOptions="Start"/>
-                        <Image Source="malaysia_flag.png" HorizontalOptions="End" HeightRequest="16"/>
-                    </StackLayout>
-                </StackLayout>
+                <Grid BackgroundColor="SkyBlue" HeightRequest="216" WidthRequest="342" Padding="10,8,10,8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="MALAYSIA Identity Card" Grid.Row="0" Grid.Column="0"/>
+                    <Image Source="malaysia_flag.png" Grid.Row="0" Grid.Column="1" HeightRequest="16"/>
+                    <Label Text="IC: XXXXXX-XX-XXXX" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
+                    <Image Source="person.png" Grid.Row="1" Grid.Column="1" HeightRequest="135" WidthRequest="94"/>
+                </Grid>
             </StackLayout>
         </ScrollView>
     </Grid>
