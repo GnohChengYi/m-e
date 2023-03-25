@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ScanPage.xaml.cs">
       <DependentUpon>ScanPage.xaml</DependentUpon>
     </Compile>
