@@ -24,46 +24,64 @@
             <Label Text="[Name]" FontAttributes="Bold" FontSize="Title" TextColor="Black"/>
         </StackLayout>
         <ScrollView Grid.Row="1">
-            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
-                <Grid BackgroundColor="SkyBlue" HeightRequest="216" WidthRequest="342" Padding="10,8,10,8">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="MALAYSIA Identity Card" Grid.Row="0" Grid.Column="0"/>
-                    <Image Source="malaysia_flag.png" Grid.Row="0" Grid.Column="1" HeightRequest="16"/>
-                    <Label Text="IC: XXXXXX-XX-XXXX" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
-                    <Image Source="person.png" Grid.Row="1" Grid.Column="1" HeightRequest="135" WidthRequest="94"/>
-                </Grid>
-                <Grid BackgroundColor="PeachPuff" HeightRequest="216" WidthRequest="342" Padding="10,8,10,8">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
+            <StackLayout HorizontalOptions="Center" Orientation="Vertical" Padding="15,12,15,12" Spacing="10">
+                <StackLayout Spacing="5">
+                    <Grid BackgroundColor="SkyBlue" HeightRequest="216" WidthRequest="342" Padding="10,8,10,8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Label Text="Malaysia Driving License" Grid.Column="0"/>
-                        <Image Source="malaysia_flag.png" Grid.Column="1" HeightRequest="16"/>
+                        <Label Text="MALAYSIA Identity Card" Grid.Row="0" Grid.Column="0"/>
+                        <Image Source="malaysia_flag.png" Grid.Row="0" Grid.Column="1" HeightRequest="16"/>
+                        <Label Text="IC: XXXXXX-XX-XXXX" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
+                        <Image Source="person.png" Grid.Row="1" Grid.Column="1" HeightRequest="135" WidthRequest="94"/>
                     </Grid>
-                    <Grid Grid.Row="1">
+                    <Grid BackgroundColor="PeachPuff" HeightRequest="216" WidthRequest="342" Padding="10,8,10,8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Malaysia Driving License" Grid.Column="0"/>
+                            <Image Source="malaysia_flag.png" Grid.Column="1" HeightRequest="16"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="person.png" Grid.Column="0" HeightRequest="135" WidthRequest="94"/>
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="Tempoh/Validity:" HorizontalTextAlignment="Start"/>
+                                <Label Text="XX/XX/XXXX - XX/XX/XXXX" HorizontalTextAlignment="Start"/>
+                            </StackLayout>
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Padding="10,8,10,8" Spacing="10">
+                    <Label Text="Easy Access" FontAttributes="Bold" FontSize="Subtitle"/>
+                    <Grid HeightRequest="100">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="person.png" Grid.Column="0" HeightRequest="135" WidthRequest="94"/>
-                        <StackLayout Grid.Column="1" VerticalOptions="Center">
-                            <Label Text="Tempoh/Validity:" HorizontalTextAlignment="Start"/>
-                            <Label Text="XX/XX/XXXX - XX/XX/XXXX" HorizontalTextAlignment="Start"/>
-                        </StackLayout>
+                        <ImageButton Grid.Row="0" Grid.Column="0" Source="mysst.png" Command="{Binding OpenMySST}" BackgroundColor="White"/>
+                        <ImageButton Grid.Row="0" Grid.Column="1" Source="mysikap.png" Command="{Binding OpenMySIKAP}" BackgroundColor="White"/>
+                        <ImageButton Grid.Row="0" Grid.Column="2" Source="passport.png" Command="{Binding OpenMyPassport}" BackgroundColor="White"/>
                     </Grid>
-                </Grid>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </Grid>
