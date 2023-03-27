@@ -142,4 +142,19 @@
       <Name>m-e</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\malaysia_flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mysikap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mysst.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\passport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\person.png" />
+  </ItemGroup>
 </Project>

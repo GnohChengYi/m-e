@@ -10,9 +10,15 @@ namespace m_e.ViewModels
         public HomeViewModel()
         {
             Title = "Home";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            OpenMySST = new Command(async () => await Browser.OpenAsync("https://mysst.customs.gov.my"));
+            OpenMySIKAP = new Command(async () => await Browser.OpenAsync("https://public.jpj.gov.my/public/login.zul"));
+            OpenMyPassport = new Command(async () => await Browser.OpenAsync("https://imigresen-online.imi.gov.my/eservices/myPasport"));
         }
 
-        public ICommand OpenWebCommand { get; }
+        public ICommand OpenMySST { get; }
+
+        public ICommand OpenMySIKAP { get; }
+
+        public ICommand OpenMyPassport { get; }
     }
 }
