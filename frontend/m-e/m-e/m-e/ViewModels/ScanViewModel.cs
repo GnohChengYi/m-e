@@ -39,13 +39,14 @@ namespace m_e.ViewModels
                     return;
                 }
             }
-            var options = new MobileBarcodeScanningOptions();   // TODO explore options
-            var scanner = new MobileBarcodeScanner()
-            {
-                TopText = "Scan the QR Code",
-                BottomText = "Please Wait",
-            };
-            ScanResult = (await scanner.Scan(options)).Text;
+            //var options = new MobileBarcodeScanningOptions();   // TODO explore options
+            var scanner = new MobileBarcodeScanner();
+            var result = await scanner.Scan();
+            //{
+            //    TopText = "Scan the QR Code",
+            //    BottomText = "Please Wait",
+            //};
+            //ScanResult = (await scanner.Scan(options)).Text;
         }
     }
 }
