@@ -19,7 +19,7 @@ namespace m_e.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Notifications";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
