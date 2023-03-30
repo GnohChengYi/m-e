@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -44,6 +45,8 @@ namespace m_e.ViewModels
             if (result != null)
             {
                 ScanResult = result.Text;
+                bool answer = await App.Current.MainPage.DisplayAlert("The Government Agency is requesting the following information:", "- Name\n- Address", "Agree", "Decline");
+                Debug.WriteLine("Response: " + answer);
             }
         }
     }
