@@ -10,8 +10,8 @@
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
             <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" ClearButtonVisibility="WhileEditing" 
                    Keyboard="Numeric" TextColor="MidnightBlue"/>
-            <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" ClearButtonVisibility="WhileEditing" 
-                   TextColor="MidnightBlue"/>
+            <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
+                   ClearButtonVisibility="WhileEditing" TextColor="MidnightBlue"/>
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
