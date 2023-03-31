@@ -9,6 +9,7 @@ namespace m_e.ViewModels
     {
         public HomeViewModel()
         {
+            Shell.Current.GoToAsync("//LoginPage");
             Title = "Home";
             OpenMySST = new Command(async () => await Browser.OpenAsync("https://mysst.customs.gov.my"));
             OpenMySIKAP = new Command(async () => await Browser.OpenAsync("https://public.jpj.gov.my/public/login.zul"));
