@@ -18,7 +18,6 @@ func main() {
 }
 
 func loginHandler(w http.ResponseWriter, r *http.Request) {
-	// TODO get token from API
 	token := getLoginToken()
 	qrcode, _ := qr.Encode(token, qr.L, qr.Auto)
 	size := 512
@@ -31,7 +30,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 
 func getLoginToken() string {
 	// TODO change to cloud server path
-	resp, err := http.Get("http://127.0.0.1:8080/login")
+	resp, err := http.Get("https://kyjqqy73i2.execute-api.ap-southeast-1.amazonaws.com/default/login")
 	if err != nil {
 		fmt.Println(err)
 	}
