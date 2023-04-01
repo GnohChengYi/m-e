@@ -5,6 +5,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using System.Net.NetworkInformation;
+using Plugin.Fingerprint;
 
 namespace m_e.Droid
 {
@@ -19,6 +20,7 @@ namespace m_e.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+            CrossFingerprint.SetCurrentActivityResolver(() => this);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

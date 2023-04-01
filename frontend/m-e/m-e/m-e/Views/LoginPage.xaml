@@ -8,11 +8,15 @@
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Image Source="VHackLogo_New.png" HeightRequest="100" WidthRequest="100"/>
             <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" ClearButtonVisibility="WhileEditing" 
                    Keyboard="Numeric" TextColor="MidnightBlue"/>
             <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
                    ClearButtonVisibility="WhileEditing" TextColor="MidnightBlue"/>
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+            <Button VerticalOptions="Center" Text="Login with password" Command="{Binding PasswordLoginCommand}"/>
+            <ImageButton Source="fingerprint.png" Command="{Binding FingerprintLoginCommand}" 
+                         BackgroundColor="White" HeightRequest="100" WidthRequest="100"/>
+            <Label Text="Use Fingerprint" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
