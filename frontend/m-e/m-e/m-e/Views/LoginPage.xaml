@@ -7,19 +7,41 @@
              x:Class="m_e.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Image Source="VHackLogo_New.png" HeightRequest="100" WidthRequest="100"/>
-            <Label Text="Malaysia. Electronic. Identity." HorizontalOptions="Center" Margin="0,0,0,80" 
+        <Frame>
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="White" Offset="0.0"/>
+                    <GradientStop Color="AliceBlue" Offset="0.1"/>
+                    <GradientStop Color="#94FCFF" Offset="0.5"/>
+                    <GradientStop Color="#00D9FF" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+            <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+                <Image Source="VHackLogo_New.png" HeightRequest="100" WidthRequest="100"/>
+                <Label Text="Malaysia. Electronic. Identity." HorizontalOptions="Center" Margin="0,0,0,80" 
                    FontSize="25" FontAttributes="Bold"/>
-            <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" ClearButtonVisibility="WhileEditing" 
-                   Keyboard="Numeric" TextColor="MidnightBlue"/>
-            <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
-                   ClearButtonVisibility="WhileEditing" TextColor="MidnightBlue"/>
-            <Button VerticalOptions="Center" Text="Login with password" Command="{Binding PasswordLoginCommand}"/>
-            <ImageButton Source="fingerprint.png" Command="{Binding FingerprintLoginCommand}" 
-                         BackgroundColor="White" HeightRequest="100" WidthRequest="100"/>
-            <Label Text="Use Fingerprint" HorizontalOptions="Center"/>
-        </StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0">
+                        <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" 
+                           ClearButtonVisibility="WhileEditing" Keyboard="Numeric" TextColor="MidnightBlue"/>
+                        <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
+                       ClearButtonVisibility="WhileEditing" TextColor="MidnightBlue"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1">
+                        <ImageButton Source="fingerprint.png" Command="{Binding FingerprintLoginCommand}" 
+                                 BackgroundColor="#00000000" HeightRequest="100" WidthRequest="100"/>
+                    </StackLayout>
+                </Grid>
+                <Frame BackgroundColor="#0076B2" CornerRadius="20" Padding="0">
+                    <Button VerticalOptions="Center" Text="Login" Command="{Binding PasswordLoginCommand}"
+                            BackgroundColor="#00000000" FontSize="Large"/>
+                </Frame>
+            </StackLayout>
+        </Frame>
     </ContentPage.Content>
 </ContentPage>
     
