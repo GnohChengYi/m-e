@@ -46,11 +46,13 @@ namespace m_e.ViewModels
             if (scanResult != null)
             {
                 ScanResult = scanResult.Text;
-                bool answer = await App.Current.MainPage.DisplayAlert("Alert", "MyIMMS Jabatan Imigresen Malaysia is requesting the following information:\n- Passport\n- IC\n- Address", "Agree", "Decline");
+                bool answer = await App.Current.MainPage.DisplayAlert("Alert", "MyIMMS Jabatan Imigresen Malaysia is requesting for the following information:\n- Passport\n- IC\n- Address", "Agree", "Decline");
                 Debug.WriteLine("Answer: " + answer);
                 if (answer)
                 {
                     giveConsent(scanResult.ToString());
+                    await App.Current.MainPage.DisplayAlert("Alert", "The following information have been shared with MyIMMS Jabatan Imigresen Malaysia:\n- Passport\n- IC\n- Address", "Okay");
+                    await Shell.Current.GoToAsync("//HomePage");
                 }
             }
         }
