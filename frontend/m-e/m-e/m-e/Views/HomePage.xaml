@@ -28,11 +28,21 @@
                         <GradientStop Color="LightGray" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-                <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="Start" 
-                                 Padding="30,0,30,0">
-                    <Label Text="{Binding Greeting}"/>
-                    <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Title" TextColor="Black"/>
-                </StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="Start" 
+                                     Padding="30,0,30,0">
+                        <Label Text="{Binding Greeting}"/>
+                        <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Title" 
+                               TextColor="Black"/>
+                    </StackLayout>
+                    <Button Grid.Column="1" Text="LOG OUT" FontSize="Medium" BorderColor="Gray" 
+                            BorderWidth="1" CornerRadius="25" BackgroundColor="#00000000" 
+                            TextColor="Black" Command="{Binding LogOut}"/>
+                </Grid>
             </Frame>
             <ScrollView Grid.Row="1" Padding="0">
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Spacing="10">

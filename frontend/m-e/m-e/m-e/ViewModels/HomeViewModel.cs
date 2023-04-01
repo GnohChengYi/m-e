@@ -11,6 +11,7 @@ namespace m_e.ViewModels
     public class HomeViewModel : BaseViewModel
     {
         public Command LoadProfileCommand { get; }
+        public Command LogOut { get; }
 
         public HomeViewModel()
         {
@@ -19,9 +20,10 @@ namespace m_e.ViewModels
             IsBusy = true;
             DisplayDocument = "IC.png";
             LoadProfileCommand = new Command(async () => await ExecuteLoadProfileCommand());
+            LogOut = new Command(async () => await Shell.Current.GoToAsync("//LoginPage"));
             DisplayIC = new Command(() => { DisplayDocument = "IC.png"; resetBorders(); IC_Border = "Black"; });
-            DisplayLicense= new Command(() => { DisplayDocument = "lesen.png"; resetBorders(); License_Border = "Black"; });
-            DisplayAddCard= new Command(() => { DisplayDocument = "add_card.png"; resetBorders(); Add_Border = "Black"; });
+            DisplayLicense = new Command(() => { DisplayDocument = "lesen.png"; resetBorders(); License_Border = "Black"; });
+            DisplayAddCard = new Command(() => { DisplayDocument = "add_card.png"; resetBorders(); Add_Border = "Black"; });
             OpenMySST = new Command(async () => await Browser.OpenAsync("https://mysst.customs.gov.my"));
             OpenMySIKAP = new Command(async () => await Browser.OpenAsync("https://public.jpj.gov.my/public/login.zul"));
             OpenMyPassport = new Command(async () => await Browser.OpenAsync("https://imigresen-online.imi.gov.my/eservices/myPasport"));

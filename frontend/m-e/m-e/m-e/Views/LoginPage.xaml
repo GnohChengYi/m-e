@@ -24,7 +24,7 @@
                 <StackLayout Grid.Row="0" VerticalOptions="Center">
                     <Image Source="VHackLogo_New.png" HeightRequest="100" WidthRequest="100"/>
                     <Label Text="Malaysia. Electronic. Identity." HorizontalOptions="Center" Margin="0,0,0,80" 
-                   FontSize="25" FontAttributes="Bold"/>
+                           FontSize="20" FontAttributes="Bold"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
