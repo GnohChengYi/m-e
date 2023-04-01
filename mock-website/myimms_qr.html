@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="refresh" content="10;url=/register">
+        <style>
+            body, html {
+                height: 100%;
+            }
+            .bg {
+                background-image: "myimms_qr.png";
+                height: 100%;
+            }
+            .qr-btn {
+                top: 25%;
+                right: 10%;
+                width: fit-content;
+                height: 40px;
+                position: absolute;
+            }
+            .mock-label {
+                top: 7%;
+                left: 45%;
+                width: fit-content;
+                height: fit-content;
+                font-size: xx-large;
+                background-color: red;
+                position: absolute;
+            }
+            .base-timer-label {
+                top: 40%;
+                left: 48%;
+                font-size: 50px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body class="bg" background="myimms_qr.png">
+        <script>
+            const TIME_LIMIT = 300;
+            let timePassed = 0;
+            let timeLeft = TIME_LIMIT;
+            
+            function formatTime(time) {
+                const minutes = Math.floor(time / 60);
+                let seconds = time % 60;
+                if (seconds < 10) {
+                    seconds = `0${seconds}`;
+                }
+                return `${minutes}:${seconds}`
+            }
+            
+            let timerInterval = null;
+            function startTimer() {
+                timerInterval = setInterval(() => {
+                    timePassed = timePassed += 1;
+                    timeLeft = TIME_LIMIT - timePassed;
+                    document.getElementById("base-timer-label").innerHTML = formatTime(timeLeft);
+                }, 1000);
+            }
+
+            startTimer();
+        </script>
+        <button class="qr-btn"
+            onclick="window.location.href='register'">
+            Fill Details with Info from M-E
+        </button>
+        <label class="mock-label">MOCK WEBSITE</label>
+        <span id="base-timer-label" class="base-timer-label">
+        </span>
+    </body>
+</html>
