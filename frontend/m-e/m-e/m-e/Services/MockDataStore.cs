@@ -9,6 +9,8 @@ namespace m_e.Services
     public class MockDataStore : IDataStore<Item>
     {
         readonly List<Item> items;
+        readonly List<Item> sysNotifs;
+        readonly List<Item> govNotifs;
         readonly Profile profile;
 
         public MockDataStore()
@@ -17,6 +19,18 @@ namespace m_e.Services
             items = new List<Item>()
             {
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Did you just log in?", Description="A new device/browser was used to log in to your account" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Update your contact details", Description="Make sure your contact information is up-to-date so you can stay in touch with us" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "System upgrade", Description="We’re making changes to improve our security. You need to change your password to finish the process. If you don’t, you’ll be asked to do so when you next log in or use the app. If you need help, get in touch with our support team at support@me.gov.my or call 603 8000 8000." },
+            };
+            sysNotifs = new List<Item>()
+            {
+                new Item { Id = Guid.NewGuid().ToString(), Text = "SysDid you just log in?", Description="A new device/browser was used to log in to your account" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Update your contact details", Description="Make sure your contact information is up-to-date so you can stay in touch with us" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "System upgrade", Description="We’re making changes to improve our security. You need to change your password to finish the process. If you don’t, you’ll be asked to do so when you next log in or use the app. If you need help, get in touch with our support team at support@me.gov.my or call 603 8000 8000." },
+            };
+            govNotifs = new List<Item>()
+            {
+                new Item { Id = Guid.NewGuid().ToString(), Text = "GovDid you just log in?", Description="A new device/browser was used to log in to your account" },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Update your contact details", Description="Make sure your contact information is up-to-date so you can stay in touch with us" },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "System upgrade", Description="We’re making changes to improve our security. You need to change your password to finish the process. If you don’t, you’ll be asked to do so when you next log in or use the app. If you need help, get in touch with our support team at support@me.gov.my or call 603 8000 8000." },
             };
@@ -60,5 +74,16 @@ namespace m_e.Services
         {
             return await Task.FromResult(items);
         }
+
+        public async Task<IEnumerable<Item>> GetSysNotifsAsync(bool forceRefresh = false)
+        {
+            return await Task.FromResult(sysNotifs);
+        }
+
+        public async Task<IEnumerable<Item>> GetGovNotifsAsync(bool forceRefresh = false)
+        {
+            return await Task.FromResult(govNotifs);
+        }
+
     }
 }
