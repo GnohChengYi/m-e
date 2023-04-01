@@ -16,35 +16,43 @@
                     <GradientStop Color="#00D9FF" Offset="1.0"/>
                 </LinearGradientBrush>
             </Frame.Background>
-            <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-                <Image Source="VHackLogo_New.png" HeightRequest="100" WidthRequest="100"/>
-                <Label Text="Malaysia. Electronic. Identity." HorizontalOptions="Center" Margin="0,0,0,80" 
+            <Grid Padding="10,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" VerticalOptions="Center">
+                    <Image Source="VHackLogo_New.png" HeightRequest="100" WidthRequest="100"/>
+                    <Label Text="Malaysia. Electronic. Identity." HorizontalOptions="Center" Margin="0,0,0,80" 
                    FontSize="25" FontAttributes="Bold"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Grid.Column="0">
-                        <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" 
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" 
                            ClearButtonVisibility="WhileEditing" Keyboard="Numeric" TextColor="MidnightBlue"
                                Margin="10,0,0,0"/>
-                        <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
+                            <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
                                ClearButtonVisibility="WhileEditing" TextColor="MidnightBlue" Margin="10,0,0,0"/>
-                    </StackLayout>
-                    <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="0,0,10,0">
-                        <Frame BackgroundColor="#80E5F6FF" CornerRadius="28" Padding="2" HasShadow="True"
+                        </StackLayout>
+                        <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="0,0,10,0">
+                            <Frame BackgroundColor="#80E5F6FF" CornerRadius="28" Padding="2" HasShadow="True"
                                BorderColor="LightGray">
-                            <ImageButton Source="fingerprint.png" Command="{Binding FingerprintLoginCommand}" 
+                                <ImageButton Source="fingerprint.png" Command="{Binding FingerprintLoginCommand}" 
                                      BackgroundColor="#00000000" HeightRequest="70" WidthRequest="56"/>
-                        </Frame>
-                    </StackLayout>
-                </Grid>
-                <Frame BackgroundColor="#0076B2" CornerRadius="20" Padding="0">
-                    <Button VerticalOptions="Center" Text="Login" Command="{Binding PasswordLoginCommand}"
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                    <Frame BackgroundColor="#0076B2" CornerRadius="20" Padding="0">
+                        <Button VerticalOptions="Center" Text="Login" Command="{Binding PasswordLoginCommand}"
                             BackgroundColor="#00000000" FontSize="Large"/>
-                </Frame>
-            </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <Label Grid.Row="1" Text="Register now!" TextDecorations="Underline" HorizontalTextAlignment="Center" 
+                       Padding="0,100,0,0"/>
+            </Grid>
         </Frame>
     </ContentPage.Content>
 </ContentPage>
