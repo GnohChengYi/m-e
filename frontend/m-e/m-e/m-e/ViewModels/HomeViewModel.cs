@@ -18,7 +18,7 @@ namespace m_e.ViewModels
             Shell.Current.GoToAsync("//LoginPage");
             Title = "Home";
             IsBusy = true;
-            LastLogin = "Last login: " + DateTime.Now.Subtract(TimeSpan.FromHours(2)).ToString("MMM dd HH:mm:ss");
+            LastLogin = "Last login: " + DateTime.Now.Subtract(TimeSpan.FromHours(2)).ToString("MMM dd,  HH:mm:ss");
             DisplayDocument = "IC.png";
             LoadProfileCommand = new Command(async () => await ExecuteLoadProfileCommand());
             LogOut = new Command(async () => await Shell.Current.GoToAsync("//LoginPage"));
