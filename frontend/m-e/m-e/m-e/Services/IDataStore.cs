@@ -12,6 +12,10 @@ namespace m_e.Services
         Task<bool> UpdateItemAsync(T item);
         Task<bool> DeleteItemAsync(string id);
         Task<T> GetItemAsync(string id);
+        Task<T> GetSysNotifsAsync(string id);
+        Task<T> GetGovNotifsAsync(string id);
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+        Task<IEnumerable<T>> GetSysNotifsAsync(bool forceRefresh = false);
+        Task<IEnumerable<T>> GetGovNotifsAsync(bool forceRefresh = false);
     }
 }

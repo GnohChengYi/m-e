@@ -5,7 +5,8 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:m_e.ViewModels"  
              xmlns:model="clr-namespace:m_e.Models"  
-             x:Name="BrowseItemsPage">
+             x:Name="BrowseItemsPage"
+             Shell.NavBarIsVisible="False">
 
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.

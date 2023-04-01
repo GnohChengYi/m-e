@@ -29,10 +29,11 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+
     <TabBar>
-        <ShellContent Title="Home" Icon="icon_about.png" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
-        <ShellContent Title="Scan" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ScanPage}" />
-        <ShellContent Title="Notifications" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <ShellContent Title="Home" Icon="icon_home.png" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
+        <ShellContent Title="Scan" Icon="icon_scan.png" ContentTemplate="{DataTemplate local:ScanPage}" />
+        <ShellContent Title="Notifications" Icon="icon_notifs.png" ContentTemplate="{DataTemplate local:NotifsPage}" />
     </TabBar>
 
     <!--

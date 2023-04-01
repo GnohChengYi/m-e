@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="m_e.Views.HomePage"
              xmlns:vm="clr-namespace:m_e.ViewModels"
-             Title="{Binding Title}">
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.BindingContext>
         <vm:HomeViewModel />
@@ -21,66 +21,96 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <StackLayout Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="Start" Padding="30,24,30,24">
-                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Title" TextColor="Black"/>
-            </StackLayout>
-            <ScrollView Grid.Row="1">
-                <StackLayout HorizontalOptions="Center" Orientation="Vertical" Padding="15,12,15,12" Spacing="10">
-                    <StackLayout Spacing="5">
-                        <Grid BackgroundColor="SkyBlue" HeightRequest="216" WidthRequest="342" Padding="10,8,10,8">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Text="MALAYSIA Identity Card" Grid.Row="0" Grid.Column="0"/>
-                            <Image Source="malaysia_flag.png" Grid.Row="0" Grid.Column="1" HeightRequest="16"/>
-                            <Label Text="{Binding IC}" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
-                            <Image Source="person.png" Grid.Row="1" Grid.Column="1" HeightRequest="135" WidthRequest="94"/>
-                        </Grid>
-                        <Grid BackgroundColor="PeachPuff" HeightRequest="216" WidthRequest="342" Padding="10,8,10,8">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Text="Malaysia Driving License" Grid.Column="0"/>
-                                <Image Source="malaysia_flag.png" Grid.Column="1" HeightRequest="16"/>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="person.png" Grid.Column="0" HeightRequest="135" WidthRequest="94"/>
-                                <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                    <Label Text="Tempoh/Validity:" HorizontalTextAlignment="Start"/>
-                                    <Label Text="{Binding LicenseValidity}" HorizontalTextAlignment="Start"/>
-                                </StackLayout>
-                            </Grid>
-                        </Grid>
+            <Frame>
+                <Frame.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="White" Offset="0.9"/>
+                        <GradientStop Color="LightGray" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="Start" 
+                                     Padding="15,0,30,0">
+                        <Label Text="{Binding Greeting}"/>
+                        <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Title" 
+                               TextColor="Black"/>
                     </StackLayout>
+                    <Button Grid.Column="1" Text="LOG OUT" FontSize="Medium" BorderColor="Gray" 
+                            BorderWidth="1" CornerRadius="25" BackgroundColor="#00000000" 
+                            TextColor="Black" Command="{Binding LogOut}"/>
+                </Grid>
+            </Frame>
+            <ScrollView Grid.Row="1" Padding="0">
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" Spacing="10">
+                    <Frame>
+                        <Frame.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="White" Offset="0.0"/>
+                                <GradientStop Color="Pink" Offset="1.0"/>
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <StackLayout Spacing="10" Padding="0,0,0,30">
+                            <Label Text="{Binding LastLogin}" Margin="10,0,0,0"/>
+                            <Image Source="{Binding DisplayDocument}" HeightRequest="216" 
+                                   WidthRequest="342" Margin="0,28,0,15"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <ImageButton Grid.Column="0" Source="IC.png" HeightRequest="72" 
+                                             WidthRequest="114" BackgroundColor="#00000000"
+                                             Command="{Binding DisplayIC}" 
+                                             BorderColor="{Binding IC_Border}"
+                                             BorderWidth="1" CornerRadius="5"/>
+                                <ImageButton Grid.Column="1" Source="lesen.png" HeightRequest="72" 
+                                             WidthRequest="114" BackgroundColor="#00000000"
+                                             Command="{Binding DisplayLicense}"
+                                             BorderColor="{Binding License_Border}"
+                                             BorderWidth="1" CornerRadius="5"/>
+                                <ImageButton Grid.Column="2" Source="add_card.png" HeightRequest="72" 
+                                             WidthRequest="114" BackgroundColor="#00000000"
+                                             Command="{Binding DisplayAddCard}"
+                                             BorderColor="{Binding Add_Border}"
+                                             BorderWidth="1" CornerRadius="5"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
                     <StackLayout Orientation="Vertical" Padding="10,8,10,8" Spacing="10">
-                        <Label Text="Easy Access" FontAttributes="Bold" FontSize="Subtitle"/>
-                        <Grid HeightRequest="100">
+                        <Label Text="Easy Access" FontAttributes="Bold" FontSize="Title" Margin="10,0,0,0"/>
+                        <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <ImageButton Grid.Row="0" Grid.Column="0" Source="mysst.png" Command="{Binding OpenMySST}" BackgroundColor="White"/>
-                            <ImageButton Grid.Row="0" Grid.Column="1" Source="mysikap.png" Command="{Binding OpenMySIKAP}" BackgroundColor="White"/>
-                            <ImageButton Grid.Row="0" Grid.Column="2" Source="passport.png" Command="{Binding OpenMyPassport}" BackgroundColor="White"/>
+                            <ImageButton Grid.Row="0" Grid.Column="0" Source="mysst.png" Command="{Binding OpenMySST}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="0" Grid.Column="1" Source="mysikap.png" Command="{Binding OpenMySIKAP}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="0" Grid.Column="2" Source="passport.png" Command="{Binding OpenMyPassport}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="1" Grid.Column="0" Source="penang.png" Command="{Binding OpenPenang}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="1" Grid.Column="1" Source="bayar.png" Command="{Binding OpenBayar}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="1" Grid.Column="2" Source="mpm.png" Command="{Binding OpenMPM}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="2" Grid.Column="0" Source="sirip.png" Command="{Binding OpenSirip}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="2" Grid.Column="1" Source="mysejahtera.png" Command="{Binding OpenMySejahtera}" 
+                                         BackgroundColor="#0000"/>
+                            <Image Grid.Row="2" Grid.Column="2" Source="moretocome.png"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>

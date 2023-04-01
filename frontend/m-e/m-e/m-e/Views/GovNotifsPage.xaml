@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="m_e.Views.GovNotifsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:m_e.ViewModels"  
+             xmlns:model="clr-namespace:m_e.Models"  
+             x:Name="BrowseGovNotifsPage"
+             Shell.NavBarIsVisible="False">
+
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <Frame>
+        <Frame.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop Color="White" Offset="0.0"/>
+                <GradientStop Color="Pink" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Frame.Background>
+        <RefreshView x:DataType="local:GovNotifsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Margin="6">
+            <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10" BackgroundColor="#FFA870" Margin="10" Padding="8">
+                            <StackLayout x:DataType="model:Item">
+                                <Label Text="{Binding Text}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                                <Label Text="{Binding Description}"
+                            LineBreakMode="TailTruncation"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:GovNotifsViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Frame>
+</ContentPage>

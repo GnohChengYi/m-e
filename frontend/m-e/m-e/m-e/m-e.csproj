@@ -17,6 +17,24 @@
     <Compile Update="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\GovNotifsPage.xaml.cs">
+      <DependentUpon>GovNotifsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\GovNotifsDetailPage.xaml.cs">
+      <DependentUpon>GovNotifsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SysNotifsDetailPage.xaml.cs">
+      <DependentUpon>SysNotifsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SysNotifsPage.xaml.cs">
+      <DependentUpon>SysNotifsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ItemsPage.xaml.cs">
+      <DependentUpon>ItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\NotifsPage.xaml.cs">
+      <DependentUpon>NotifsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ScanPage.xaml.cs">
       <DependentUpon>ScanPage.xaml</DependentUpon>
     </Compile>
