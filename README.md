@@ -17,3 +17,8 @@ Data transmitted between the user and the app server is scrambled and unreadable
 
 ## Link to our wonderful M-E app
 Follow this link to download our app: https://play.google.com/apps/internaltest/4700762320161287925. Note that we are still in the internal testing phase XD
+
+## Contact info
+Gnoh Cheng Yi - chengyignoh@gmail.com, https://www.linkedin.com/in/gnoh-cheng-yi/ <br>
+Tan Wei Chun - chun4187@gmail.com, https://www.linkedin.com/in/tan-wei-chun-013a7026a/ <br>
+Dernice Lee Tian Yi - dernicelee@gmail.com, https://www.linkedin.com/in/dernice-lee-9013aa256/
