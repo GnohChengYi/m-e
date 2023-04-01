@@ -23,6 +23,13 @@ namespace m_e.ViewModels
             OpenMyPassport = new Command(async () => await Browser.OpenAsync("https://imigresen-online.imi.gov.my/eservices/myPasport"));
         }
 
+        string greeting = string.Empty;
+        public string Greeting
+        {
+            get { return greeting; }
+            set { SetProperty(ref greeting, value); }
+        }
+
         string name = string.Empty;
         public string Name
         {
@@ -56,13 +63,22 @@ namespace m_e.ViewModels
             try
             {
                 Profile profile = await DataStore.GetProfileAsync(true);
-                Debug.WriteLine(profile);
+                string am_pm = DateTime.Now.ToString("tt", System.Globalization.CultureInfo.InvariantCulture);
+                if (am_pm.Equals("AM"))
+                {
+                    Greeting = "Good morning,";
+                }
+                else if (am_pm.Equals("PM"))
+                {
+                    Greeting = "Good afternoon,";
+                }
+                else
+                {
+                    Greeting = "Welcome,";
+                }
                 Name = profile.Name;
-                Debug.WriteLine("after name");
                 IC = "IC: " + profile.IC;
-                Debug.WriteLine("after ic");
                 LicenseValidity = profile.LicenseValidity;
-                Debug.WriteLine("after license");
             }
             catch (Exception ex)
             {
