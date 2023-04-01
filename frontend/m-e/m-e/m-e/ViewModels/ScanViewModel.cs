@@ -46,7 +46,7 @@ namespace m_e.ViewModels
             if (scanResult != null)
             {
                 ScanResult = scanResult.Text;
-                bool answer = await App.Current.MainPage.DisplayAlert("Alert", "The Government Agency is requesting the following information:\n- Passport\n- IC\n- Address", "Agree", "Decline");
+                bool answer = await App.Current.MainPage.DisplayAlert("Alert", "MyIMMS Jabatan Imigresen Malaysia is requesting the following information:\n- Passport\n- IC\n- Address", "Agree", "Decline");
                 Debug.WriteLine("Answer: " + answer);
                 if (answer)
                 {
