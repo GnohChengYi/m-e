@@ -53,9 +53,10 @@
                                 <GradientStop Color="Pink" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Frame.Background>
-                        <StackLayout>
+                        <StackLayout Spacing="10" Padding="0,0,0,30">
+                            <Label Text="{Binding LastLogin}"/>
                             <Image Source="{Binding DisplayDocument}" HeightRequest="216" 
-                                   WidthRequest="342"/>
+                                   WidthRequest="342" Margin="0,28,0,15"/>
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
@@ -81,19 +82,35 @@
                         </StackLayout>
                     </Frame>
                     <StackLayout Orientation="Vertical" Padding="10,8,10,8" Spacing="10">
-                        <Label Text="Easy Access" FontAttributes="Bold" FontSize="Subtitle"/>
-                        <Grid HeightRequest="100">
+                        <Label Text="Easy Access" FontAttributes="Bold" FontSize="Title" Margin="10,0,0,0"/>
+                        <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <ImageButton Grid.Row="0" Grid.Column="0" Source="mysst.png" Command="{Binding OpenMySST}" BackgroundColor="White"/>
-                            <ImageButton Grid.Row="0" Grid.Column="1" Source="mysikap.png" Command="{Binding OpenMySIKAP}" BackgroundColor="White"/>
-                            <ImageButton Grid.Row="0" Grid.Column="2" Source="passport.png" Command="{Binding OpenMyPassport}" BackgroundColor="White"/>
+                            <ImageButton Grid.Row="0" Grid.Column="0" Source="mysst.png" Command="{Binding OpenMySST}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="0" Grid.Column="1" Source="mysikap.png" Command="{Binding OpenMySIKAP}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="0" Grid.Column="2" Source="passport.png" Command="{Binding OpenMyPassport}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="1" Grid.Column="0" Source="penang.png" Command="{Binding OpenPenang}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="1" Grid.Column="1" Source="bayar.png" Command="{Binding OpenBayar}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="1" Grid.Column="2" Source="mpm.png" Command="{Binding OpenMPM}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="2" Grid.Column="0" Source="sirip.png" Command="{Binding OpenSirip}" 
+                                         BackgroundColor="#0000"/>
+                            <ImageButton Grid.Row="2" Grid.Column="1" Source="mysejahtera.png" Command="{Binding OpenMySejahtera}" 
+                                         BackgroundColor="#0000"/>
+                            <Image Grid.Row="2" Grid.Column="2" Source="moretocome.png"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>

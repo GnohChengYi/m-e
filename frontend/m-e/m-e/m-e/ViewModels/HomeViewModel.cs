@@ -18,6 +18,7 @@ namespace m_e.ViewModels
             Shell.Current.GoToAsync("//LoginPage");
             Title = "Home";
             IsBusy = true;
+            LastLogin = "Last login: " + DateTime.Now.Subtract(TimeSpan.FromHours(2)).ToString("MMM dd HH:mm:ss");
             DisplayDocument = "IC.png";
             LoadProfileCommand = new Command(async () => await ExecuteLoadProfileCommand());
             LogOut = new Command(async () => await Shell.Current.GoToAsync("//LoginPage"));
@@ -27,6 +28,11 @@ namespace m_e.ViewModels
             OpenMySST = new Command(async () => await Browser.OpenAsync("https://mysst.customs.gov.my"));
             OpenMySIKAP = new Command(async () => await Browser.OpenAsync("https://public.jpj.gov.my/public/login.zul"));
             OpenMyPassport = new Command(async () => await Browser.OpenAsync("https://imigresen-online.imi.gov.my/eservices/myPasport"));
+            OpenPenang = new Command(async () => await Browser.OpenAsync("https://www.penang.gov.my/"));
+            OpenBayar = new Command(async () => await Browser.OpenAsync("https://mybayar.rmp.gov.my/en"));
+            OpenMPM = new Command(async () => await Browser.OpenAsync("https://www.mpm.edu.my/stpm-online/semakan-keputusan-stpm"));
+            OpenSirip = new Command(async () => await Browser.OpenAsync("https://eservices.dof.gov.my/ePerkhidmatan/index.php?mod=authentication&amp;opt=login"));
+            OpenMySejahtera = new Command(async () => await Browser.OpenAsync("https://play.google.com/store/apps/details?id=my.gov.onegovappstore.mysejahtera"));
         }
 
         string greeting = string.Empty;
@@ -41,6 +47,13 @@ namespace m_e.ViewModels
         {
             get { return name; }
             set { SetProperty(ref name, value); }
+        }
+
+        string lastLogin = string.Empty;
+        public string LastLogin
+        {
+            get { return lastLogin; }
+            set { SetProperty(ref lastLogin, value); }
         }
 
         string displayDocument = string.Empty;
@@ -103,6 +116,11 @@ namespace m_e.ViewModels
         public ICommand OpenMySIKAP { get; }
 
         public ICommand OpenMyPassport { get; }
+        public ICommand OpenPenang { get; }
+        public ICommand OpenBayar { get; }
+        public ICommand OpenMPM { get; }
+        public ICommand OpenSirip { get; }
+        public ICommand OpenMySejahtera { get; }
 
         async Task ExecuteLoadProfileCommand()
         {
