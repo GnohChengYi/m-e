@@ -10,7 +10,7 @@
         <Frame>
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="White" Offset="0.0"/>
+                    <GradientStop Color="#FFE1F3" Offset="0.0"/>
                     <GradientStop Color="AliceBlue" Offset="0.1"/>
                     <GradientStop Color="#94FCFF" Offset="0.5"/>
                     <GradientStop Color="#00D9FF" Offset="1.0"/>

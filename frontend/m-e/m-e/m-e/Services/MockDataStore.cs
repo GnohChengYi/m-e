@@ -22,17 +22,13 @@ namespace m_e.Services
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Update your contact details", Description="Make sure your contact information is up-to-date so you can stay in touch with us" },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "System upgrade", Description="We’re making changes to improve our security. You need to change your password to finish the process. If you don’t, you’ll be asked to do so when you next log in or use the app. If you need help, get in touch with our support team at support@me.gov.my or call 603 8000 8000." },
             };
-            sysNotifs = new List<Item>()
-            {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "SysDid you just log in?", Description="A new device/browser was used to log in to your account" },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Update your contact details", Description="Make sure your contact information is up-to-date so you can stay in touch with us" },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "System upgrade", Description="We’re making changes to improve our security. You need to change your password to finish the process. If you don’t, you’ll be asked to do so when you next log in or use the app. If you need help, get in touch with our support team at support@me.gov.my or call 603 8000 8000." },
-            };
+            sysNotifs = items;
             govNotifs = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "GovDid you just log in?", Description="A new device/browser was used to log in to your account" },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Update your contact details", Description="Make sure your contact information is up-to-date so you can stay in touch with us" },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "System upgrade", Description="We’re making changes to improve our security. You need to change your password to finish the process. If you don’t, you’ll be asked to do so when you next log in or use the app. If you need help, get in touch with our support team at support@me.gov.my or call 603 8000 8000." },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Beware of evolving scam techniques", Description="Read more on https://www.malaymail.com/news/malaysia/2023/02/18/minister-govt-launches-national-anti-scam-campaign-2023-to-counter-evolving-scam-techniques/55604" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Don’t fan racial flames, says PM in stern warning", Description="Read more on https://www.freemalaysiatoday.com/category/nation/2023/03/17/dont-fan-racial-flames-says-pm-in-stern-warning/" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Don’t disrupt Johor’s unity, sultan warns", Description="Read more on https://www.freemalaysiatoday.com/category/nation/2023/03/22/dont-disrupt-johors-unity-sultan-warns/" },
+                new Item { Id = Guid.NewGuid().ToString(), Text = "Flash flood warning issued for 6 states", Description="Read more on https://www.freemalaysiatoday.com/category/nation/2023/01/22/flash-flood-warning-issued-for-6-states/" },
             };
         }
 
@@ -68,6 +64,16 @@ namespace m_e.Services
         public async Task<Item> GetItemAsync(string id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+        }
+
+        public async Task<Item> GetSysNotifsAsync(string id)
+        {
+            return await Task.FromResult(sysNotifs.FirstOrDefault(s => s.Id == id));
+        }
+
+        public async Task<Item> GetGovNotifsAsync(string id)
+        {
+            return await Task.FromResult(govNotifs.FirstOrDefault(s => s.Id == id));
         }
 
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
