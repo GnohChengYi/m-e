@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net.Http;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -41,13 +42,30 @@ namespace m_e.ViewModels
                 }
             }
             var scanner = new MobileBarcodeScanner();
-            var result = await scanner.Scan();
-            if (result != null)
+            var scanResult = await scanner.Scan();
+            if (scanResult != null)
             {
-                ScanResult = result.Text;
-                bool answer = await App.Current.MainPage.DisplayAlert("The Government Agency is requesting the following information:", "- Name\n- Address", "Agree", "Decline");
-                Debug.WriteLine("Response: " + answer);
+                ScanResult = scanResult.Text;
+                bool answer = await App.Current.MainPage.DisplayAlert("Alert", "The Government Agency is requesting the following information:\n- Passport\n- IC\n- Address", "Agree", "Decline");
+                Debug.WriteLine("Answer: " + answer);
+                if (answer)
+                {
+                    giveConsent(scanResult.ToString());
+                }
             }
+        }
+
+        private async void giveConsent(string scanResult)
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new Uri("https://kyjqqy73i2.execute-api.ap-southeast-1.amazonaws.com");
+            // TODO send user token
+            var content = new StringContent(scanResult);
+            Debug.WriteLine("v073 before postAsync");
+            HttpResponseMessage response = await client.PostAsync("/default/login", content);
+            Debug.WriteLine($"v073 {response}");
+            ScanResult = response.ToString();
+            //var result = await response.Content.ReadAsStringAsync();
         }
     }
 }
