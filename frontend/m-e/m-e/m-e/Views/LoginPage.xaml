@@ -27,13 +27,16 @@
                     </Grid.ColumnDefinitions>
                     <StackLayout Grid.Column="0">
                         <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" 
-                           ClearButtonVisibility="WhileEditing" Keyboard="Numeric" TextColor="MidnightBlue"/>
+                           ClearButtonVisibility="WhileEditing" Keyboard="Numeric" TextColor="MidnightBlue"
+                               Margin="10,0,0,0"/>
                         <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
-                       ClearButtonVisibility="WhileEditing" TextColor="MidnightBlue"/>
+                               ClearButtonVisibility="WhileEditing" TextColor="MidnightBlue" Margin="10,0,0,0"/>
                     </StackLayout>
-                    <StackLayout Grid.Column="1">
-                        <ImageButton Source="fingerprint.png" Command="{Binding FingerprintLoginCommand}" 
-                                 BackgroundColor="#00000000" HeightRequest="100" WidthRequest="100"/>
+                    <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="0,0,10,0">
+                        <Frame BackgroundColor="#80E5F6FF" CornerRadius="28" Padding="2" HasShadow="True">
+                            <ImageButton Source="fingerprint.png" Command="{Binding FingerprintLoginCommand}" 
+                                     BackgroundColor="#00000000" HeightRequest="70" WidthRequest="56"/>
+                        </Frame>
                     </StackLayout>
                 </Grid>
                 <Frame BackgroundColor="#0076B2" CornerRadius="20" Padding="0">
