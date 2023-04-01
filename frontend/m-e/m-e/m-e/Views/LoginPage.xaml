@@ -9,6 +9,8 @@
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
             <Image Source="VHackLogo_New.png" HeightRequest="100" WidthRequest="100"/>
+            <Label Text="Malaysia. Electronic. Identity." HorizontalOptions="Center" Margin="0,0,0,80" 
+                   FontSize="25" FontAttributes="Bold"/>
             <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" ClearButtonVisibility="WhileEditing" 
                    Keyboard="Numeric" TextColor="MidnightBlue"/>
             <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
@@ -20,3 +22,4 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+    
