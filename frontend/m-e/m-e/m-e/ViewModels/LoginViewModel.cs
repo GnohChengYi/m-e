@@ -19,6 +19,20 @@ namespace m_e.ViewModels
             PasswordLoginCommand = new Command(OnLoginClicked);
         }
 
+        public string ic = "";
+        public string IC
+        {
+            get { return ic; }
+            set { SetProperty(ref ic, value); }
+        }
+
+        public string password = "";
+        public string Password
+        {
+            get { return password; }
+            set { SetProperty(ref password, value); }
+        }
+
         private async void FingerprintLogin()
         {
             var _cancel = new CancellationTokenSource(TimeSpan.FromSeconds(10));
@@ -33,8 +47,15 @@ namespace m_e.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+            if (ic.Equals("000101010001") && password.Equals("010101"))
+            {
+                // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Alert", "Invalid IC or Password", "Okay");
+            }
         }
     }
 }
