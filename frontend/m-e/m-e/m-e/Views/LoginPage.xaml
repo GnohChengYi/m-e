@@ -31,10 +31,10 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
                         <StackLayout Grid.Column="0">
-                            <Entry Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" 
+                            <Entry Text="{Binding IC}"  Placeholder="IC" PlaceholderColor="Olive" MaxLength="12" 
                            ClearButtonVisibility="WhileEditing" Keyboard="Numeric" TextColor="MidnightBlue"
                                Margin="10,0,0,0"/>
-                            <Entry IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
+                            <Entry Text="{Binding Password}" IsPassword="True" Placeholder="Password" PlaceholderColor="Olive" 
                                ClearButtonVisibility="WhileEditing" TextColor="MidnightBlue" Margin="10,0,0,0"/>
                         </StackLayout>
                         <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="0,0,10,0">
